@@ -1,0 +1,21 @@
+{
+    "name": "search/search",
+    "description": "Creating a reddit search API.",
+    "license": "MIT",
+    "keywords": ["psr-4, php"],
+    "authors": [
+        {
+            "name": "Cláudio Ribeiro",
+            "email": "claudio.santos.ribeiro@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "search\\Searcher\\": "src"
+        }
+    }
+}

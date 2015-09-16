@@ -1,0 +1,1 @@
+This project will use the reddit API to do dedicated searches in PHP.
