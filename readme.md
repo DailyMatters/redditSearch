@@ -1,1 +1,3 @@
-This project will use the reddit API to do dedicated searches in PHP.
+![alt tag](https://travis-ci.org/DailyMatters/redditSearch.svg?branch=master)
+
+This project uses PHP and the reddit API to do dedicated searches.
