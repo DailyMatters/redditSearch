@@ -1,6 +1,6 @@
 <?php
 
-use redditSearch\Searcher\Searcher;
+use search\Searcher\Searcher;
 
 class SearcherTest extends PHPUnit_Framework_TestCase {
 	

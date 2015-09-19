@@ -1,13 +1,8 @@
 <?php
 
-namespace redditSearch\Searcher;
+namespace search\Searcher;
 
 class Searcher{
-
-	/*public function __construct( $query, $options ){
-		$this->query = $query;
-		$this->options = $options;
-	}*/
 
 	public function execSearch( $query, $options ){
 
