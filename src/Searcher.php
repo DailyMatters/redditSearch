@@ -1,6 +1,6 @@
 <?php
 
-namespace search\Searcher;
+namespace redditSearch\Searcher;
 
 class Searcher{
 

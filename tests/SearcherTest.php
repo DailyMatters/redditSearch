@@ -1,6 +1,6 @@
 <?php
 
-use search\Searcher\Searcher;
+use redditSearch\Searcher\Searcher;
 
 class SearcherTest extends PHPUnit_Framework_TestCase {
 	
@@ -8,6 +8,10 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		
 		$search = new Searcher();
 		$result = $search->execSearch( "yolo", "yolo" );
+
+		//Trying to output some results
+		//fwrite(STDERR, print_r($result, TRUE));
+
 		$this->assertNotEmpty( $search );
 		
 	}

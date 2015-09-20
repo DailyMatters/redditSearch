@@ -1,6 +1,6 @@
 <?php
 
-use search\Searcher\Searcher;
+use redditSearch\Searcher\Searcher;
 
 execute( "rafael", "yolo" );
 
