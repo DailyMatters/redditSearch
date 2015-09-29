@@ -9,8 +9,7 @@
             "email": "claudio.santos.ribeiro@gmail.com"
         }
     ],
-    "require": {},
-    "require-dev": {
+    "require": {
         "phpunit/phpunit": "4.0.*"
     },
     "autoload": {
