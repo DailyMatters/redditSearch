@@ -2,14 +2,14 @@
 
 namespace redditSearch\Searcher;
 
-class Searcher{
+class Searcher {
 
-	public function execSearch( $query, $options ){
+	public function execSearch($query, $options) {
 
 		//http://www.reddit.com/r/entrepreneur/search.json?q=" + searchString + "&sort=" + radioValue
 	
 		//Checks if options are valid
-		if( $this->validateOptions( $options ) !== false ){
+		if ($this->validateOptions($options) !== false) {
 
 			//Executes a REST request to the reddit api (GET)
 			$curl = curl_init();
@@ -21,21 +21,21 @@ class Searcher{
 			
 			return $curl_response;
 		}
-		else{
+		else {
 			return false;
 		}
 	}
 
 	/**
-	* Checks if the option passed is valid, false n case it's not
-	*/
+	 * Checks if the option passed is valid, false n case it's not
+	 */
 	protected function validateOptions( $options ){
 
 		$possible = array( 'new', 'hot', 'top', 'relevance', 'comments' );
 
 		if( in_array( $options, $possible) ){
 			return $options;
-		}else{
+		} else{
 			return false;
 		}
 
