@@ -15,7 +15,7 @@ class Searcher {
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, "http://www.reddit.com/r/entrepreneur/search.json?q=" . $query . "&sort=" . $options);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_HEADER, 1);
+			curl_setopt($curl, CURLOPT_HEADER, 0);
 
 			$curl_response = curl_exec($curl);
 			

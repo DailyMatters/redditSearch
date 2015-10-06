@@ -12,12 +12,12 @@ storeSearch( 'entrepreneur', 'hot' );
 */
 function storeSearch( $query, $options ){
 
-	echo '*** SEARCHING ***';
+	echo '*** SEARCHING *** ';
 
 	$search = new Searcher();
 	$result = $search->execSearch( $query, $options );
 
 	file_put_contents( 'data.txt', $result, FILE_APPEND);
 
-	echo '*** SEARCH COMPLETE ***';
+	echo ' *** SEARCH COMPLETE ***';
 }
