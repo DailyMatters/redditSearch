@@ -40,7 +40,8 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		$search = new Searcher();
 		$result = $search->execSearch( "yolo", "hot", 2 );
 
-		$this->assertEquals( count($result), 2 );
+		$size = json_decode($result, true);
+		$this->assertEquals( count($size), 2 );
 
 	}
 }

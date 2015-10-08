@@ -19,5 +19,8 @@ function storeSearch( $query, $options, $results ){
 
 	file_put_contents( 'data.txt', $result, FILE_APPEND);
 
+	/*$limit = json_decode( $result, true );
+	var_dump( count($limit) );*/
+
 	echo ' *** SEARCH COMPLETE ***';
 }
