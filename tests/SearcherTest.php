@@ -34,4 +34,13 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		$this->assertNotEquals( $result, false );
 		
 	}
+
+	public function testLimit(){
+
+		$search = new Searcher();
+		$result = $search->execSearch( "yolo", "hot", 2 );
+
+		$this->assertEquals( count($result), 2 );
+
+	}
 }
