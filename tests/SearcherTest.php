@@ -4,6 +4,7 @@ use redditSearch\Searcher\Searcher;
 
 class SearcherTest extends PHPUnit_Framework_TestCase {
 	
+	//Test if the request is correct and shows results
 	public function testNotEmpty(){
 		
 		$search = new Searcher();
@@ -16,7 +17,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		
 	}
 	
-
+	//Tests for invalid search options
 	public function testNotValidOption(){
 		
 		$search = new Searcher();
@@ -26,6 +27,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		
 	}
 
+	//Tests for valid search options
 	public function testValidOption(){
 		
 		$search = new Searcher();
@@ -35,13 +37,25 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		
 	}
 
-	public function testLimit(){
+	//Tests if limits are working
+	public function testLimitTrue(){
 
 		$search = new Searcher();
 		$result = $search->execSearch( "yolo", "hot", 2 );
 
 		$size = json_decode($result, true);
 		$this->assertEquals( count($size), 2 );
+
+	}
+
+	//Tests if limits are working
+	public function testLimitFalse(){
+
+		$search = new Searcher();
+		$result = $search->execSearch( "yolo", "hot", 5 );
+
+		$size = json_decode($result, true);
+		$this->assertNotEquals( count($size), 3 );
 
 	}
 }
