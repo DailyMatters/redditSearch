@@ -17,11 +17,13 @@ class Searcher {
 		//http://www.reddit.com/r/entrepreneur/search.json?q=" + searchString + "&sort=" + radioValue + "&limit=" + limitNumber
 	
 		//Checks if options are valid
-		if ($this->validateOptions($options) !== false) {
+		if ($this->validateOptions($options) !== false && $this->validateLimit($results) !== false) {
 
+			$roundedResults = round( $results );
+		
 			//Executes a REST request to the reddit api (GET)
 			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_URL, "http://www.reddit.com/r/entrepreneur/search.json?q=" . $query . "&sort=" . $options . "&limit=" . $results);
+		curl_setopt($curl, CURLOPT_URL, "http://www.reddit.com/r/entrepreneur/search.json?q=" . $query . "&sort=" . $options . "&limit=" . $roundedResults);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curl, CURLOPT_HEADER, 0);
 
@@ -47,6 +49,19 @@ class Searcher {
 			return false;
 		}
 
+	}
+	
+	/**
+	 * Checks if the limit passed is valid
+	 */
+	protected function validateLimit( $limit ){
+		
+		if( is_integer( $limit )){
+			return $limit;
+		}else{
+			return false;
+		}
+		
 	}
 
 }

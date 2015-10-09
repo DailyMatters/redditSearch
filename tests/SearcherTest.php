@@ -38,6 +38,22 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	}
 	
 	//Tests for invalid limit input
+	public function testInvalidStringLimit(){
+		
+		$search = new Searcher();
+		$result = $search->execSearch( "yolo", "hot", "lol" );
+
+		$this->assertEquals( $result, false );
+	}
+	
+	//Tests for invalid limit input
+	public function testInvalidFloatLimit(){
+		
+		$search = new Searcher();
+		$result = $search->execSearch( "yolo", "hot", 5.5 );
+
+		$this->assertEquals( $result, false );
+	}
 
 	//Tests if limits are working
 	public function testLimitTrue(){
@@ -47,7 +63,6 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 
 		$size = json_decode($result, true);
 		$this->assertEquals( count($size), 2 );
-
 	}
 
 	//Tests if limits are working
@@ -58,6 +73,27 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 
 		$size = json_decode($result, true);
 		$this->assertNotEquals( count($size), 3 );
-
 	}
+	
+	//Tests for rounded up limits
+	/*public function testRoundedUpLimit(){
+		
+		$search = new Searcher();
+		$result = $search->execSearch( "ferrari", "hot", 5 );
+
+		$size = json_decode($result, true);
+		$this->assertEquals( count($size), 6 );
+		
+	}
+	
+	//Tests for rounded down limits
+	public function testRoundedDownLimit(){
+		
+		$search = new Searcher();
+		$result = $search->execSearch( "ferrari", "hot", 5.4 );
+
+		$size = json_decode($result, true);
+		$this->assertEquals( count($size), 5 );
+		
+	}*/
 }
