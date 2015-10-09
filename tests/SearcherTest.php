@@ -36,6 +36,8 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		$this->assertNotEquals( $result, false );
 		
 	}
+	
+	//Tests for invalid limit input
 
 	//Tests if limits are working
 	public function testLimitTrue(){
