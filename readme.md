@@ -19,7 +19,7 @@ Results will be returned in a JSon array.
 
 To search for the last 50 posts with more comments, related to ferrari:
 
-```
+```php
 	$search = new Searcher();
 	$result = $search->execSearch( 'ferrari', 'comments', 50 );
 ```
