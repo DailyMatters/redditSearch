@@ -28,6 +28,7 @@ class Searcher {
 			curl_setopt($curl, CURLOPT_HEADER, 0);
 
 			$curl_response = curl_exec($curl);
+			curl_close($curl);
 			
 			return $curl_response;
 		}
