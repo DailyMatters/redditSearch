@@ -62,6 +62,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 		$result = $search->execSearch( "yolo", "hot", 2 );
 
 		$size = json_decode($result, true);
+		var_dump(count($size));die;
 		$this->assertEquals( count($size), 2 );
 	}
 
