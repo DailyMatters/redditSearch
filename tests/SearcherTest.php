@@ -8,7 +8,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testNotEmpty(){
 		
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "new" );
+		$result = $search->execSearch( "php", "composer", "new" );
 
 		//Trying to output some results
 		//fwrite(STDERR, print_r($result, TRUE));
@@ -21,7 +21,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testNotValidOption(){
 		
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "yolo" );
+		$result = $search->execSearch( "php", "yolo", "yolo" );
 
 		$this->assertEquals( $result, false );
 		
@@ -31,7 +31,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testValidOption(){
 		
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "hot" );
+		$result = $search->execSearch( "php", "composer", "hot" );
 
 		$this->assertNotEquals( $result, false );
 		
@@ -41,7 +41,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testInvalidStringLimit(){
 		
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "hot", "lol" );
+		$result = $search->execSearch( "php", "composer", "hot", "lol" );
 
 		$this->assertEquals( $result, false );
 	}
@@ -50,7 +50,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testInvalidFloatLimit(){
 		
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "hot", 5.5 );
+		$result = $search->execSearch( "php", "composer", "hot", 5.5 );
 
 		$this->assertEquals( $result, false );
 	}
@@ -59,7 +59,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testLimitTrue(){
 
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "hot", 2 );
+		$result = $search->execSearch( "php", "composer", "hot", 2 );
 
 		$size = json_decode($result, true);
 		$this->assertEquals( count($size), 2 );
@@ -69,7 +69,7 @@ class SearcherTest extends PHPUnit_Framework_TestCase {
 	public function testLimitFalse(){
 
 		$search = new Searcher();
-		$result = $search->execSearch( "yolo", "hot", 5 );
+		$result = $search->execSearch( "php", "composer", "hot", 5 );
 
 		$size = json_decode($result, true);
 		$this->assertNotEquals( count($size), 3 );

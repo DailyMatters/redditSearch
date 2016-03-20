@@ -5,17 +5,20 @@ namespace redditSearch\Searcher;
 class Searcher {
 
 	/**
-	* This method queries the reddit API for searches
-	*
-	* @param $query The term to search for
-	* @param $options The search option ( 'new', 'hot', 'top', 'relevance', 'comments' )
-	* @param $results The number of results to show ( The default is 25 but it can be less )
-	*
+ 	 * This method queries the reddit API for searches
+ 	 *
+ 	 * @param $subreddit The subreddit to search
+ 	 * @param $query The term to search for
+ 	 * @param $options The filter used to search
+ 	 * @param $results The number of results to return
+ 	 *
 	**/
-	public function execSearch($query, $options, $results = 25) {
+	public function execSearch($subreddit, $query, $options, $results = 10) {
 
-		//http://www.reddit.com/r/entrepreneur/search.json?q=" + searchString + "&sort=" + radioValue + "&limit=" + limitNumber
-	
+		if( $subreddit == "" ){
+			$subreddit = "php";
+		}
+
 		//Checks if options are valid
 		if ($this->validateOptions($options) !== false && $this->validateLimit($results) !== false) {
 
@@ -23,7 +26,7 @@ class Searcher {
 		
 			//Executes a REST request to the reddit api (GET)
 			$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, "http://www.reddit.com/r/entrepreneur/search.json?q=" . $query . "&sort=" . $options . "&limit=" . $roundedResults);
+			curl_setopt($curl, CURLOPT_URL, "http://www.reddit.com/r/" . $subreddit . "/search.json?q=" . $query . "&restrict_sr=1&sort=" . $options . "&limit=" . $roundedResults );
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curl, CURLOPT_HEADER, 0);
 
